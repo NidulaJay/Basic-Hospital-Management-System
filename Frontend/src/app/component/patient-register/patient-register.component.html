@@ -1,0 +1,49 @@
+
+<div style="text-align: center; margin-top: 30px;">
+    <h1>Register patient</h1>
+</div>
+
+<form class="row g-3" style="margin-top: 50px;" [formGroup]="PatientRegisterForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="First_Name" formControlName="firstName">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="Last_Name" formControlName="Last_Name">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" formControlName="Email">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Birth Date</label>
+      <input type="date" class="form-control" id="inputPassword4" formControlName="Birth_Date">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">phone number</label>
+        <input type="text" class="form-control" id="inputPassword4" formControlName="phone_number">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Id number</label>
+        <input type="text" class="form-control" id="inputPassword4" formControlName="ID_number">
+      </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="Address">
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">City</label>
+      <input type="text" class="form-control" id="inputCity" formControlName="City">
+    </div>
+    <div class="col-md-6">
+        <label for="inputbloodgroup" class="form-label">Blood Group</label>
+        <select id="inputbloodgroup" class="form-select" formControlName="Blood_Group">
+          <!-- <option selected>Choose...</option> -->
+          <option *ngFor="let blg of Blood_group" [ngValue]="blg.id">{{blg.id}}</option>
+        </select>
+      </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>

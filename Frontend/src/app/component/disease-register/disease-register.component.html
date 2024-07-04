@@ -1,0 +1,25 @@
+<div style="text-align: center; margin-top: 70px;">
+    <h1>Disease Register</h1>
+</div>
+
+<form class="row g-3" style="margin-top: 0px;" [formGroup]="DiseaseRegisterForm" (ngSubmit)="onsubmit()">
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Disease Name</label>
+      <input type="email" class="form-control" id="inputEmail4" formControlName="name">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">code</label>
+      <input type="email" class="form-control" id="inputEmail4" formControlName="code">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">description</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="" formControlName="description">
+    </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">symptomps</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="" formControlName="symptoms">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
