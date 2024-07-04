@@ -1,0 +1,55 @@
+
+    <div class="container" style="margin-top: 30px; text-align: center;">
+        <h1>Search Patient</h1>
+    </div>
+
+    <div class="container-fluid" style="margin-top: 30px;">
+      <div class="container" style="align-items: center; text-align: center;">
+        <form class="row gx-3 gy-2" [formGroup]="patientserachform">
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="specificSizeInputName" placeholder="Patient name" formControlName="patientName">
+          </div>
+          <div class="col-md-3">
+              <div class="input-group">
+                  <input type="text" class="form-control" id="specificSizeInputGroupUsername" placeholder="Disease name" formControlName="diseaseName">
+              </div>
+          </div>
+          <div class="col-md-3">
+
+              <select id="specificSizeSelect" class="form-select" formControlName="bloodGroup">
+                <option selected value="" disabled hidden>Blood group</option>
+                <option *ngFor="let blg of Blood_group" [ngValue]="blg.id">{{blg.id}}</option>
+              </select>
+          </div>
+          <div class="col-md-3">
+            <button type="button"  class="btn btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 40pc; margin: 50px;">
+      <div class="container" style="align-items: center; text-align: center;">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>ID Number</th>
+              <th>Name</th>
+              <th>Blood Group</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  class="hover-effect" *ngFor = "let patient of patients; let i = index" (click)="view(patient.pid)">
+              <td>{{i + 1 }} </td>
+              <td>{{patient.pid}}</td>
+              <td>{{patient.fname}} {{patient.lname}} </td>
+              <td>{{patient.bloodGroup}}</td>
+              <!-- <td> <button class="btn btn-primary" type="button" (click)="delete(patient.id)">View</button></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  

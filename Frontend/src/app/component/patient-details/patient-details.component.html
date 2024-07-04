@@ -1,0 +1,84 @@
+
+<div style="text-align: center; margin-top: 40px;">
+    <h1>Patient Details</h1>
+</div>
+
+<div class="">
+    <button type="button" [disabled]="deletebuttonStatus"  class="btn btn-secondary" (click)="back()">Back</button>
+  </div>
+<form class="row g-3" style="margin-top: 50px;"  [formGroup]="PatientRegisterForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6" >
+      <label for="inputEmail4" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="First_Name" formControlName="firstName" [value]="patients?.fname">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="Last_Name" formControlName="Last_Name" [value]="patients?.lname">
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" formControlName="Email" [value]="patients?.email">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Birth Date</label>
+      <input type="date" class="form-control" id="inputPassword4" formControlName="Birth_Date" [value]="patients?.birthDate">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">phone number</label>
+        <input type="text" class="form-control" id="inputPassword4" formControlName="phone_number" [value]="patients?.phone_number">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Id number</label>
+        <input type="text" class="form-control" id="inputPassword4" formControlName="ID_number" [value]="patients?.pid">
+      </div>
+    <div class="col-12">
+      <label for="inputAddress2" class="form-label">Address</label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="Address" [value]="patients?.address">
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">City</label>
+      <input type="text" class="form-control" id="inputCity" formControlName="City" [value]="patients?.city">
+    </div>
+    <div class="col-md-6">
+        <label for="inputbloodgroup" class="form-label">Blood Group</label>
+       <select id="inputbloodgroup" class="form-select" formControlName="Blood_Group">
+        <option [value]="patients?.bloodGroup"  disabled >{{patients?.bloodGroup}}</option>
+          <option *ngFor="let blg of Blood_group" [ngValue]="blg.id">{{blg.id}}</option>
+        </select> 
+      </div>
+    <div class="col-1">
+      <button type="submit" [disabled]="buttonStatus" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="col-10">
+      <button type="button"  class="btn btn-primary" (click)="edit(functionStatus)">{{buttonName}}</button>
+    </div>
+    <div class="col-1">
+      <button type="button" [disabled]="deletebuttonStatus"  class="btn btn-primary" (click)="delete(patients.pid)">Delete</button>
+    </div>
+  </form>
+
+  <div class="container row" style="margin-top: 100px;">
+    <div class="col-6">
+      <div class="container" style="text-align: center;">
+        <h5>ASSIGN NEW DiSEASE</h5>
+      </div>
+      <form action="" class="row g-3" style="padding: 50px;">
+        <label for="" class="col-12 form-label">Disease Name</label>
+        <Select class="col-10 form-select">
+          <option selected disabled hidden>Diseases</option>
+          <option *ngFor="let dis of Disease" [ngValue]="dis.did">{{dis.name}}</option>
+        </Select>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary" style="background-color: rgb(118, 134, 167); border-color: rgb(118, 134, 167);">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-6">
+        <div class="container" style="text-align: center;">
+          <h5>ASSIGNED DiSEASES</h5>
+        </div>
+        <ol class="list-group list-group-numbered" style="padding: 50px;">
+          <li class="list-group-item">A list item</li>
+        </ol>
+    </div>
+  </div>
